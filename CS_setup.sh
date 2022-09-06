@@ -67,13 +67,13 @@ cat > /etc/apache2/mods-available/deflate.conf <<EOF
 </IfModule>
 EOF
 
-a2enmod proxy proxy_http rewrite
+a2enmod proxy proxy_http rewrite header
 a2dissite 000-default
 a2ensite nuxeo
 
 # KIBANA_PASS=$(aws secretsmanager get-secret-value --secret-id kibana_default_password --region us-west-2 | jq -r '.SecretString|fromjson|.kibana_default_password')
 # htpasswd -b -c /etc/apache2/passwords kibana "${KIBANA_PASS}"
-apache2ctl -k graceful
+systemctl restart apache2
 
 # Enable SSL certs
 # echo "Nuxeo Presales Installation Script: Enable Certbot Certificate" | tee -a ${INSTALL_LOG}
