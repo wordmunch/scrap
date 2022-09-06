@@ -47,7 +47,7 @@ cat << EOF > /etc/apache2/sites-available/nuxeo.conf
       RewriteRule .* - [R=404,L,NC]
     </Location>
     ## END SUPINT-655 ##
-    Header edit Set-Cookie ^(.*)$ \$1;SameSite=None;Secure
+    # Header edit Set-Cookie ^(.*)$ \$1;SameSite=None;Secure
 </VirtualHost>
 EOF
 
@@ -67,7 +67,7 @@ cat > /etc/apache2/mods-available/deflate.conf <<EOF
 </IfModule>
 EOF
 
-a2enmod proxy proxy_http rewrite header
+a2enmod proxy proxy_http rewrite
 a2dissite 000-default
 a2ensite nuxeo
 
