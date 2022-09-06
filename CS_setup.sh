@@ -1,7 +1,7 @@
 INSTALL_LOG="/var/log/nuxeo_install.log"
 COMPOSE_REPO="https://github.com/nuxeo-sandbox/nuxeo-presales-docker"
 COMPOSE_DIR="/home/ubuntu/nuxeo-presales-docker"
-CONF_DIR="${COMPOSE_DIR}/conf"
+#CONF_DIR="${COMPOSE_DIR}/conf"
 
 # Configure reverse-proxy
 cat << EOF > /etc/apache2/sites-available/nuxeo.conf
@@ -88,7 +88,7 @@ echo "Nuxeo Presales Installation Script: Setup profile, ubuntu, etc." | tee -a 
 cat << EOF >> /home/ubuntu/.profile
 export TERM="xterm-color"
 export PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$ '
-export COMPOSE_DIR=${COMPOSE_DIR}
+# export COMPOSE_DIR=${COMPOSE_DIR}
 alias dir='ls -alFGh'
 alias hs='history'
 alias mytail='nxl'
@@ -97,10 +97,10 @@ alias mydu='du -sh */'
 # Add stack management and QOL aliases
 source ${COMPOSE_DIR}/aliases.sh
 # Override some of the above for AWS usage
-alias stack='make -e -f ${COMPOSE_DIR}/Makefile'
+# alias stack='make -e -f ${COMPOSE_DIR}/Makefile'
 # Extras for AWS usage
-alias nxenv='vim ${COMPOSE_DIR}/.env'
-alias nxconf='vim ${CONF_DIR}/system.conf'
+# alias nxenv='vim ${COMPOSE_DIR}/.env'
+# alias nxconf='vim ${CONF_DIR}/system.conf'
 EOF
 
 # Set up vim for ubuntu user
