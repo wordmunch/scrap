@@ -19,7 +19,7 @@ NUXEO_DATA_DIR="${NUXEO_BASE_DIR}/data"
 NUXEO_LOG_DIR="${NUXEO_BASE_DIR}/log"
 NUXEO_ENV="${COMPOSE_DIR}/.env"
 
-STUDIO_USERNAME="nuxeo_presales"
+STUDIO_USERNAME=""
 
 TEMPLATES="default,mongodb"
 
